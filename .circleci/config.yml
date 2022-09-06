@@ -16,9 +16,17 @@ jobs:
       - checkout
       - run: |
           npm install
-          npm start
         #name: "Say hello"
         #command: "echo Hello, World!"
+
+    build:
+      docker:
+        - image: cimg/base:stable
+      steps:
+        - checkout
+        - run: |
+          npm install
+
                     
 
 # Invoke jobs via workflows
