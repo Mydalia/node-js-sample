@@ -15,7 +15,10 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: docker build .
+      - run: 
+        name : Build Docker Image
+        command : |
+          docker build .
                     
 
 # Invoke jobs via workflows
