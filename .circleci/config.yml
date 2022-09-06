@@ -12,7 +12,7 @@ jobs:
           name : Build & Run Docker Image
           command : |
             docker build -t node-js-sample .
-            docker run -d -p 8080:8080 node-js-sample
+            docker run --name node-js-sample -d -p 8080:8080 node-js-sample
             sleep 3
             docker exec node-js-sample curl http://localhost:8080
             
