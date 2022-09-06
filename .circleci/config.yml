@@ -1,23 +1,30 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  build-and-test:
+  say-hello:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
-        - image: cimg/base:stable
+      - image: cimg/base:stable
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
-        - checkout
-        - setup_remote_docker
-        - run:
-            name: Build docker image
-            command: |
-                docker build -t node-js-sample .
-        - run:
-            name: Run and Test docker image
-            command: |
-                docker run -d -p 8080:8080 --name node-js-sample node-js-sample
-                sleep 3
-                docker exec node-js-sample curl --retry 10 --retry-connrefused http://localhost:8080
+      - checkout
+      - setup_remote_docker
+      - run: 
+          name : Build Docker Image
+          command : |
+            docker build -t Node-JS-Sample .
+                    
+
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-    version: 2
-    build-and-test:
-        jobs:
-        - build-and-test
+  say-hello-workflow:
+    jobs:
+      - say-hello
+
