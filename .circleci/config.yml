@@ -17,8 +17,7 @@ jobs:
       - setup_remote_docker
       - run: 
         name : Build Docker Image
-        command : |
-          docker build .
+        command : docker build .
                     
 
 # Invoke jobs via workflows
