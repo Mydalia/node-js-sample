@@ -14,19 +14,19 @@ jobs:
             docker build -t node-js-sample .
             docker run --name node-js-sample -d -p 8080:8080 node-js-sample
 
-        - run :
-          name : Test Docker Image
-          command : |
-            sleep 3
-            docker exec node-js-sample curl http://localhost:8080
-        
-        - run :
-          name : Push Docker Image
-          command : |
-            docker login -u $DOCKERHUB_LOGIN -p $DOCKERHUB_PASSWORD
-            docker tag node-js-sample $DOCKERHUB_LOGIN/node-js-sample
-            docker push $DOCKERHUB_LOGIN/node-js-sample
-            
+      - run :
+        name : Test Docker Image
+        command : |
+          sleep 3
+          docker exec node-js-sample curl http://localhost:8080
+      
+      - run :
+        name : Push Docker Image
+        command : |
+          docker login -u $DOCKERHUB_LOGIN -p $DOCKERHUB_PASSWORD
+          docker tag node-js-sample $DOCKERHUB_LOGIN/node-js-sample
+          docker push $DOCKERHUB_LOGIN/node-js-sample
+          
 workflows:
   say-hello-workflow:
     jobs:
