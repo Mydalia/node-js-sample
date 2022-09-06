@@ -16,8 +16,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - run: echo "Hello, World!"
-      - npm install
-      - npm run build
+      docker build -t getting-started .    
     #name: "Say hello"
     #command: "echo Hello, World!"
 
