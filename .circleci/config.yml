@@ -18,7 +18,7 @@ jobs:
       - run: 
           name : Build Docker Image
           command : |
-            docker build . -t TPNode
+            docker build -t Node-JS-Sample .
                     
 
 # Invoke jobs via workflows
