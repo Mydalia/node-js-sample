@@ -19,13 +19,14 @@ jobs:
     #name: "Say hello"
     #command: "echo Hello, World!"
 
-    build:
-      docker:
-        - image: cimg/base:stable
-      steps:
-        - checkout
-        - run: |
-        - npm install
+  build:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run: |
+      - npm install
+      - npm run build
 
                     
 
@@ -35,3 +36,5 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - build
+
