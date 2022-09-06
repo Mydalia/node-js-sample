@@ -14,7 +14,7 @@ jobs:
             docker build -t node-js-sample .
             docker run -d -p 8080:8080 node-js-sample
             sleep 3
-            docker exec curl http://localhost:8080
+            docker exec node-js-sample curl http://localhost:8080
             
 workflows:
   say-hello-workflow:
