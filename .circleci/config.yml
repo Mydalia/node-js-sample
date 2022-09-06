@@ -23,6 +23,7 @@ jobs:
       - run: 
           name : Run Docker Image
           command : |
+            docker login -u $DOCKERHUB_LOGIN -p $DOCKERHUB_PASSWORD
             docker run -d -p 8080:8080 node-js-sample
             sleep 3
             curl http://localhost:8080
