@@ -25,7 +25,7 @@ jobs:
       steps:
         - checkout
         - run: |
-          npm install
+        - npm install
 
                     
 
