@@ -14,19 +14,11 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-      - run: |
-      - npm install
-    #name: "Say hello"
-    #command: "echo Hello, World!"
-
-  build:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - run: |
+      - run: echo "Hello, World!"
       - npm install
       - npm run build
+    #name: "Say hello"
+    #command: "echo Hello, World!"
 
                     
 
@@ -36,5 +28,4 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - build
 
